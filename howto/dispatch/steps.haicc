@@ -1,5 +1,9 @@
 # dispatch: a command from one node of a swarm to another, by its unique URI.
-# The scene: the swarm package's how-to swarm, at its end.
+# scene: the swarm package's how-to swarm, at its end: a host in service, its swarm, two nodes registered
+. boot/deploy host haiccing/base-component-haicc
+host swarm/create swarms/swarm-1
+host swarm/deploy swarms/swarm-1/node-1
+host swarm/deploy swarms/swarm-1/node-2
 # step: from node-1, a command at node-2, by its unique URI
 host/swarms/swarm-1/node-1 haicc swarm-1/node-2 crud/create notes/sent
 # expect: "uri":["main","notes/sent"],"value":{},"children":[],"outcome":"created"
